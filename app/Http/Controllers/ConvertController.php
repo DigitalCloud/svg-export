@@ -10,7 +10,7 @@ class ConvertController extends Controller
     public function savePNG()
     {
         //fullPage
-        Browsershot::url('http://dcetest.com/treereact/index.html')->windowSize(4734.5,2038)->waitUntilNetworkIdle()->save('svg.png');
+        Browsershot::url('http://dcetest.com/treereact/index.html')->windowSize(4734.5,2038)->waitUntilNetworkIdle()->deviceScaleFactor(2)->save('svg.png');
         return ['success'=>1];
     }
 }
