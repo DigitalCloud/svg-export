@@ -9,8 +9,7 @@ class ConvertController extends Controller
 {
     public function savePNG()
     {
-        $targetPath = __DIR__.'/public/temp/testScreenshot.png';
-        Browsershot::url('http://dcetest.com/treereact/index2.html')->save('svg.png');
-        //$this->assertFileExists($targetPath);
+        Browsershot::url('http://dcetest.com/treereact/index.html')->windowSize(4734.5, 2038)->save('svg.png');
+        return ['success'=>true];
     }
 }
