@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('save-png', 'ConvertController@savePNG');
+Route::get('save-svg', 'ConvertController@savePNG');
