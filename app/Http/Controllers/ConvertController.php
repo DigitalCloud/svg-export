@@ -10,7 +10,7 @@ class ConvertController extends Controller
     public function savePNG()
     {
         $targetPath = __DIR__.'/public/temp/testScreenshot.png';
-        Browsershot::url('http://dcetest.com/treereact/')->save('svg.pdf');
+        Browsershot::url('http://dcetest.com/treereact/')->save('svg.png');
         //$this->assertFileExists($targetPath);
     }
 }
