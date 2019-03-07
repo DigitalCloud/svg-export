@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('save-svg', 'ConvertController@savePNG');
+Route::get('show/{memberId}', 'ConvertController@show');
+
+Route::get('save-svg/{memberId}', 'ConvertController@savePNG');

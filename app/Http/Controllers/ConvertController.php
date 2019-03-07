@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Browsershot\Browsershot;
 
 class ConvertController extends Controller
 {
-    public function savePNG()
+    public function show(Request $request, $memberId)
+    {
+        return view('svg', ['memberId'=>$memberId]);
+    }
+
+    public function savePNG($memberId)
     {
         //fullPage
-        Browsershot::url('http://dcetest.com/treereact/index.html')->windowSize(4734.5,2038)->waitUntilNetworkIdle()->deviceScaleFactor(2)->save('svg.png');
+        Browsershot::url(asset('/show/'.$memberId))->windowSize(4734.5,2038)->waitUntilNetworkIdle()->deviceScaleFactor(2)->save('svg.png');
         return ['success'=>1];
     }
 }
