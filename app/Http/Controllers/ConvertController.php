@@ -24,9 +24,15 @@ class ConvertController extends Controller
             ->windowSize($w?$w:1600,$h?$w:900)
             //->fullPage()
             //->waitUntilNetworkIdle()
-            ->deviceScaleFactor(2)
+            ->deviceScaleFactor(2)->bodyHtml();
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
-            ->save('svg.png');
+            //->save('svg.png');
+
+        Browsershot::html($return)
+            ->useJPG()
+            ->margins(20, 0, 0, 20)
+            ->download();
+
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
 }
