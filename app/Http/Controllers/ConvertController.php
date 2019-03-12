@@ -18,6 +18,7 @@ class ConvertController extends Controller
         //fullPage
         Browsershot::url(asset('/show/'.$memberId))
             //->windowSize(3830,1302)//2794.5
+                ->fullPage()
             ->waitUntilNetworkIdle()
             ->deviceScaleFactor(2)
             ->save('svg.png');
