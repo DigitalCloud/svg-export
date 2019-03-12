@@ -17,14 +17,14 @@ class ConvertController extends Controller
     public function savePNG($memberId)
     {
         //fullPage
-        Browsershot::url(asset('/show/'.$memberId))
+        $return = Browsershot::url(asset('/show/'.$memberId))
             //->windowSize(1600,900)
-            ->windowSize(3830,1302)
+            ->windowSize(3830,1350)
             //->fullPage()
             ->waitUntilNetworkIdle()
             ->deviceScaleFactor(2)
-            ->fit(Manipulations::FIT_CONTAIN, 1600, 800)
+            //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
             ->save('svg.png');
-        return ['success'=>1];
+        return ['success'=>$return];
     }
 }
