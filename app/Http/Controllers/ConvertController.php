@@ -24,7 +24,7 @@ class ConvertController extends Controller
             //->waitUntilNetworkIdle()
             ->deviceScaleFactor(2)
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
-            ->save('svg.png');
+            //->save('svg.png');
         return ['success'=>$return];
     }
 }
