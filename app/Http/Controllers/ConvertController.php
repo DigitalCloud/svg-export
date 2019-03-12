@@ -14,17 +14,19 @@ class ConvertController extends Controller
         return view('svg', ['memberId'=>$memberId]);
     }
 
-    public function savePNG($memberId)
+    public function savePNG(Request $request, $memberId)
     {
+        $w = $request->get('w');
+        $h = $request->get('h');
         //fullPage
         $return = Browsershot::url(asset('/show/'.$memberId))
             //->windowSize(1600,900)
             ->windowSize(3830,1350)
             //->fullPage()
             //->waitUntilNetworkIdle()
-            ->deviceScaleFactor(2)->bodyHtml();
+            ->deviceScaleFactor(2)
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
-            //->save('svg.png');
-        return ['success'=>$return];
+            ->save('svg.png');
+        return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
 }
