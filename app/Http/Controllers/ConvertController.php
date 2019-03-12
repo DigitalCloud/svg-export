@@ -29,9 +29,7 @@ class ConvertController extends Controller
             //->save('svg.png');
 
         Browsershot::html($return)
-            ->useJPG()
-            ->margins(20, 0, 0, 20)
-            ->download();
+            ->savePdf('svg.pdf');
 
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
