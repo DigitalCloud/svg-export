@@ -14638,11 +14638,11 @@
           x: 0
         };
         if (nodes.length) {
-          // newTranslate = {
-          //   x: window.innerWidth / 2 - (kx(nodes[0]) + 67 / 2)
-          // };
+          newTranslate = {
+            x: window.innerWidth / 2 - (kx(nodes[0]) + 67 / 2)
+          };
         }
-        window.resizeTo(wrapperStyle.width, wrapperStyle.height);
+        // window.resizeTo(wrapperStyle.width, wrapperStyle.height);
         return React__default.createElement(
           'div',
           {
