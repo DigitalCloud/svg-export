@@ -19,8 +19,8 @@ class ConvertController extends Controller
         //fullPage
         Browsershot::url(asset('/show/'.$memberId))
             //->windowSize(1600,900)
-            //->windowSize(3830,1302)
-            ->fullPage()
+            ->windowSize(2794.5,1302)
+            //->fullPage()
             ->waitUntilNetworkIdle()
             ->deviceScaleFactor(2)
             ->fit(Manipulations::FIT_CONTAIN, 1600, 800)
