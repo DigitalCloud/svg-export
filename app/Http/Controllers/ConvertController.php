@@ -22,7 +22,7 @@ class ConvertController extends Controller
             ->windowSize(3830,1350)
             //->fullPage()
             //->waitUntilNetworkIdle()
-            ->deviceScaleFactor(2);
+            ->deviceScaleFactor(2)->bodyHtml();
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
             //->save('svg.png');
         return ['success'=>$return];
