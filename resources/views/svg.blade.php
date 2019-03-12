@@ -37,6 +37,11 @@
                     <Tree nodeClick={0} treeNodes={$tree} routeLink={``} memberItem={0} />
                 </div>;
             }
+            componentDidMount() {
+                const $w = document.getElementById('mytree').width.baseVal.value;
+                const $h = document.getElementById('mytree').height.baseVal.value;
+                window.location.href = window.location.href+'?w='+$w+'&h='+$h
+            }
         }
 
         ReactDOM.render(
