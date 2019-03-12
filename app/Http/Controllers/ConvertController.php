@@ -16,8 +16,8 @@ class ConvertController extends Controller
 
     public function savePNG(Request $request, $memberId)
     {
-        $w = $request->get('w');
-        $h = $request->get('h');
+        $w = request('w');
+        $h = request('h');
         //fullPage
         $return = Browsershot::url(asset('/show/'.$memberId))
             //->windowSize(1600,900)
