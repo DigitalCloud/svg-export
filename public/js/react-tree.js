@@ -14077,6 +14077,7 @@
         var _props = this.props,
             node = _props.node,
             nodeClick = _props.nodeClick;
+
         if (nodeClick > 0) {
           var adminFamily = window.Nova.app.$store._modules.root._children.adminFamily;
           if (nodeClick === 1) {
@@ -14585,12 +14586,15 @@
         // this.Viewer.fitToViewer();
         var _props = this.props,
             memberId = _props.memberId,
-            routeLink = _props.routeLink;
+            routeLink = _props.routeLink,
+            treeNodes = _props.treeNodes;
+        // console.log(JSON.parse(treeNodes))
 
         this.props.fetchExtendedDegreeTree({
           props: {
             memberId: memberId,
-            routeLink: routeLink
+            routeLink: routeLink,
+            treeNodes: treeNodes
           }
         });
         document.addEventListener('mousemove', this.handleMouseMove, false);
@@ -14609,7 +14613,8 @@
             props: {
               memberId: nextProps.memberId,
               routeLink: nextProps.routeLink,
-              nodeClick: nextProps.nodeClick
+              nodeClick: nextProps.nodeClick,
+              treeNodes: nextProps.treeNodes
             }
           });
         }
@@ -14629,6 +14634,15 @@
         var gesture = this.state.gesture;
         // const ratio = (this.wrapperStyle.height / this.wrapperStyle.width) * 100
 
+        var newTranslate = {
+          x: 0
+        };
+        if (nodes.length) {
+          // newTranslate = {
+          //   x: window.innerWidth / 2 - (kx(nodes[0]) + 67 / 2)
+          // };
+        }
+        window.resizeTo(wrapperStyle.width, wrapperStyle.height);
         return React__default.createElement(
           'div',
           {
@@ -14636,9 +14650,9 @@
             onMouseUp: this.handleMouseUp,
             onWheel: this.handleMouseWheel,
             style: {
-              overflow: 'hidden',
-              minHeight: '100vh',
-              minWidth: '100vw',
+              // overflow: 'hidden',
+              // minHeight: '100vh',
+              // minWidth: '100vw',
               transition: '0.2s transform ease-in-out',
               transform: 'scale(' + gesture.scale + ')'
             }
@@ -14646,10 +14660,11 @@
           React__default.createElement(
             'svg',
             {
+              id: 'mytree',
               width: wrapperStyle.width,
-              height: wrapperStyle.height,
+              height: wrapperStyle.height - 100,
               style: {
-                transform: 'translateX(' + gesture.x + 'px) translateY(' + gesture.y + 'px)'
+                transform: 'translateX(' + (gesture.x + newTranslate.x) + 'px) translateY(' + gesture.y + 'px)'
               }
             },
             React__default.createElement(
@@ -14798,7 +14813,8 @@
     tree: PropTypes.object.isRequired,
     wrapperStyle: PropTypes.object.isRequired,
     nodePop: PropTypes.any,
-    setPopNode: PropTypes.func
+    setPopNode: PropTypes.func,
+    treeNodes: PropTypes.any
   };
 
 
@@ -17465,11 +17481,25 @@
               // const x = '{"root":{"id":"fake_5c3ad6cf95d27","name":"Father","image":["https:\\/\\/api.dev.famtreedemo.com\\/thumb\\/timthumb.php?src=https:\\/\\/api.dev.famtreedemo.com\\/images\\/plus-male@x2-v2.png&zc=1&q=50&w=200&h=200"],"no_parent":true,"hidden":false,"default":true,"border_color":"#00ffa4","font_color":"#000","background_color":"#00ffa4","level":1,"main":true,"children":[{"id":21365,"name":"Yasser","image":["https:\\/\\/api.dev.famtreedemo.com\\/thumb\\/timthumb.php?src=https:\\/\\/api.dev.famtreedemo.com\\/images\\/default_male@x2.png&zc=1&q=50&w=200&h=200"],"gender":1,"is_alive":true,"marry_data":{"id":1,"name":"Married","marry_date":""},"birthday":null,"me":false,"background_color":"#00ff7b","font_color":"#000","border_color":"#00ff7b","no_parent":false,"hidden":false,"level":2,"main":true,"children":[{"id":21269,"name":"Mosbah","image":["https:\\/\\/api.dev.famtreedemo.com\\/thumb\\/timthumb.php?src=https:\\/\\/api.dev.famtreedemo.com\\/images\\/default_male@x2.png&zc=1&q=50&w=200&h=200"],"gender":1,"is_alive":true,"marry_data":{"id":1,"name":"Married","marry_date":""},"birthday":null,"me":false,"background_color":"#00ff52","font_color":"#000","border_color":"#00ff52","no_parent":false,"hidden":false,"level":3,"main":true,"children":[{"id":21334,"name":"Akram","image":["https:\\/\\/api.dev.famtreedemo.com\\/thumb\\/timthumb.php?src=https:\\/\\/api.dev.famtreedemo.com\\/images\\/default_male_active@x2.png&zc=1&q=50&w=200&h=200"],"gender":1,"is_alive":true,"marry_data":null,"birthday":"2011-01-09","me":true,"background_color":"#00c229","font_color":"#FFF","border_color":"#00c229","no_parent":false,"hidden":false,"level":4,"main":true},{"id":21336,"name":"Brither","image":["https:\\/\\/api.dev.famtreedemo.com\\/thumb\\/timthumb.php?src=https:\\/\\/api.dev.famtreedemo.com\\/images\\/default_male@x2.png&zc=1&q=50&w=200&h=200"],"gender":1,"is_alive":true,"marry_data":null,"birthday":null,"me":false,"background_color":"#FFF","font_color":"#000","border_color":"#3BAAE5","no_parent":false,"hidden":false,"level":4}]}]}]}}'
               // let res = JSON.parse(x)
             };
-            _context.next = 8;
+
+            if (!(props.routeLink !== '')) {
+              _context.next = 12;
+              break;
+            }
+
+            _context.next = 9;
             return call(TreeService.getExtendedTree, props.memberId, props.routeLink);
 
-          case 8:
-            res = _context.sent;
+          case 9:
+            _context.t0 = _context.sent;
+            _context.next = 13;
+            break;
+
+          case 12:
+            _context.t0 = JSON.parse(props.treeNodes);
+
+          case 13:
+            res = _context.t0;
             root = res.root;
             nodeDims = { width: 67, height: 89 };
             root1 = hierarchy(root);
@@ -17514,7 +17544,7 @@
             treeData.nodes = [].concat(toConsumableArray(nodes));
             treeData.links = [].concat(toConsumableArray(root1.links()));
             // console.log(treeData);handleMouseMove
-            _context.next = 32;
+            _context.next = 37;
             return put({
               type: FETCH_EXTENDED_TREE_SUCCESS,
               payload: {
@@ -17523,25 +17553,25 @@
               }
             });
 
-          case 32:
-            _context.next = 36;
+          case 37:
+            _context.next = 41;
             break;
 
-          case 34:
-            _context.prev = 34;
-            _context.t0 = _context['catch'](2);
+          case 39:
+            _context.prev = 39;
+            _context.t1 = _context['catch'](2);
 
-          case 36:
+          case 41:
             loadingObj.value = false;
-            _context.next = 39;
+            _context.next = 44;
             return put(setLoading(loadingObj));
 
-          case 39:
+          case 44:
           case 'end':
             return _context.stop();
         }
       }
-    }, _marked, this, [[2, 34]]);
+    }, _marked, this, [[2, 39]]);
   }
 
   function treeSaga() {
@@ -17605,12 +17635,13 @@
         var _props = this.props,
             memberItem = _props.memberItem,
             routeLink = _props.routeLink,
-            nodeClick = _props.nodeClick;
+            nodeClick = _props.nodeClick,
+            treeNodes = _props.treeNodes;
 
         return React__default.createElement(
           Provider,
           { store: store },
-          React__default.createElement(Tree$1, { nodeClick: nodeClick, routeLink: routeLink, member: memberItem })
+          React__default.createElement(Tree$1, { treeNodes: treeNodes, nodeClick: nodeClick, routeLink: routeLink, member: memberItem })
         );
       }
       // constructor(props) {
@@ -17625,7 +17656,8 @@
   TreeComponent.propTypes = {
     memberItem: PropTypes.number,
     routeLink: PropTypes.string.isRequired,
-    nodeClick: PropTypes.number
+    nodeClick: PropTypes.number,
+    treeNodes: PropTypes.any
   };
 
   return TreeComponent;
