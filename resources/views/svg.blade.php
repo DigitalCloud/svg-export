@@ -43,7 +43,7 @@
                 const urlParams = new URLSearchParams(window.location.search)
                 const $x = urlParams.get('w')
                 const $y = urlParams.get('h)
-                if($x!=null && $y!=null) {
+                if($x==null && $y==null) {
                     window.location.href = window.location.href + '?w=' + $w + '&h=' + $h
                 }
             }
