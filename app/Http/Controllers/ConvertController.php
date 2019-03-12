@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Browsershot\Browsershot;
+use Spatie\Image\Manipulations;
 
 class ConvertController extends Controller
 {
@@ -17,10 +18,11 @@ class ConvertController extends Controller
     {
         //fullPage
         Browsershot::url(asset('/show/'.$memberId))
-            //->windowSize(3830,1302)//2794.5
-                ->fullPage()
+            //->windowSize(1600,900)
+            ->windowSize(3830,1302)
             ->waitUntilNetworkIdle()
             ->deviceScaleFactor(2)
+            ->fit(Manipulations::FIT_CONTAIN, 1600, 900)
             ->save('svg.png');
         return ['success'=>1];
     }
