@@ -23,7 +23,7 @@ class ConvertController extends Controller
                 ->fullPage()
             ->waitUntilNetworkIdle()
             ->deviceScaleFactor(2)
-            ->fit(Manipulations::FIT_MAX, 1600, 900)
+            ->fit(Manipulations::FIT_CONTAIN, 1400, 800)
             ->save('svg.png');
         return ['success'=>1];
     }
