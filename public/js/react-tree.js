@@ -14661,7 +14661,7 @@
             'svg',
             {
               id: 'mytree',
-              width: wrapperStyle.width + 1800,// Math.abs(newTranslate.x)
+              width: wrapperStyle.width,
               height: wrapperStyle.height - 100,
               style: {
                 transform: 'translateX(' + (gesture.x + newTranslate.x) + 'px) translateY(' + gesture.y + 'px)'
