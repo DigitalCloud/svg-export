@@ -29,9 +29,6 @@ class ConvertController extends Controller
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
             ->save('svg.png');
 
-//        Browsershot::html($return)
-//            ->savePdf('svg.pdf');
-
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
 }

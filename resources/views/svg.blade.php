@@ -40,12 +40,12 @@
             componentDidMount() {
                 const $w = document.getElementById('mytree').width.baseVal.value;
                 const $h = document.getElementById('mytree').height.baseVal.value;
-                const urlParams = new URLSearchParams(window.location.search)
-                const $x = urlParams.get('w')
-                const $y = urlParams.get('h)
-                if($x==null && $y==null) {
-                    window.location.href = window.location.href + '?w=' + $w + '&h=' + $h
-                }
+                // const urlParams = new URLSearchParams(window.location.search)
+                // const $x = urlParams.get('w')
+                // const $y = urlParams.get('h)
+                // if($x==null && $y==null) {
+                //     window.location.href = window.location.href + '?w=' + $w + '&h=' + $h
+                // }
             }
         }
 
