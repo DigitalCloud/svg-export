@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94742fce17cb9664c7935a16cf7f941b",
+    "content-hash": "eb5d88c2bcd64deebea6d0cff3030723",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2943,6 +2943,57 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2017-11-27T11:13:29+00:00"
+        },
+        {
+            "name": "verumconsilium/laravel-browsershot",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/verumconsilium/laravel-browsershot.git",
+                "reference": "8876de74f519c457f68fcc366814b8920b2d3eb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verumconsilium/laravel-browsershot/zipball/8876de74f519c457f68fcc366814b8920b2d3eb0",
+                "reference": "8876de74f519c457f68fcc366814b8920b2d3eb0",
+                "shasum": ""
+            },
+            "require": {
+                "spatie/browsershot": "^3.19"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "VerumConsilium\\Browsershot\\BrowsershotServiceProvider"
+                    ],
+                    "aliases": {
+                        "PDF": "VerumConsilium\\Browsershot\\Facades\\PDF",
+                        "Screenshot": "VerumConsilium\\Browsershot\\Facades\\Screenshot"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "VerumConsilium\\Browsershot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verum Consilium",
+                    "homepage": "https://verumconsilium.com"
+                }
+            ],
+            "description": "Browsershot Laravel wrapper to generate PDF files and Screenshots using Headless Chrome",
+            "time": "2018-12-12T05:10:43+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
