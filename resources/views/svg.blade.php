@@ -44,7 +44,7 @@
                 const $x = urlParams.get('w');
                 const $y = urlParams.get('h');
                 if($x==null && $y==null) {
-                    window.open(window.location.href + '?w=' + $w + '&h=' + $h);
+                    window.location.href = window.location.href + '?w=' + $w + '&h=' + $h
                 }
             }
         }
