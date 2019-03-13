@@ -40,7 +40,8 @@
             componentDidMount() {
                 const $w = document.getElementById('mytree').width.baseVal.value;
                 const $h = document.getElementById('mytree').height.baseVal.value;
-                // const urlParams = new URLSearchParams(window.location.search)
+                const urlParams = new URLSearchParams(window.location.search);
+                console.log(urlParams);
                 // const $x = urlParams.get('w')
                 // const $y = urlParams.get('h)
                 // if($x==null && $y==null) {
