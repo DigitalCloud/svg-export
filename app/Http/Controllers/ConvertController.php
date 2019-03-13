@@ -20,11 +20,12 @@ class ConvertController extends Controller
         $h = $request->input('h');
         //fullPage
         $return = Browsershot::url(asset('/show/'.$memberId))
-            ->windowSize($w?$w:1600,$h?$w:900)
+            //->windowSize($w?$w:1600,$h?$w:900)
             //->windowSize($w?$w:3830,$h?$w:1350)
             //->windowSize($w?$w:1600,$h?$w:900)
             //->fullPage()
             //->waitUntilNetworkIdle()
+            ->writeOptionsToFile()
             ->deviceScaleFactor(2)
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
             ->save('svg.png');
