@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Browsershot\Browsershot;
 use Spatie\Image\Manipulations;
-use VerumConsilium\Browsershot\Facades\PDF;
+//use VerumConsilium\Browsershot\Facades\PDF;
 
 class ConvertController extends Controller
 {
@@ -32,8 +32,8 @@ class ConvertController extends Controller
 //            ->save('svg.png');
 
         $return = Browsershot::url(asset('/show/'.$memberId))->bodyHtml();
-        PDF::loadHtml($return)
-            ->download('svg1.pdf');
+//        PDF::loadHtml($return)
+//            ->download('svg1.pdf');
 
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
