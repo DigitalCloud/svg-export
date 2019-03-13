@@ -28,6 +28,7 @@ class ConvertController extends Controller
             ->writeOptionsToFile()
             ->deviceScaleFactor(2)
             //->fit(Manipulations::FIT_CONTAIN, 1600, 800)
+            ->delay(2000)
             ->save('svg.png');
 
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
