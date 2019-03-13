@@ -41,9 +41,9 @@
                 const $w = document.getElementById('mytree').width.baseVal.value;
                 const $h = document.getElementById('mytree').height.baseVal.value;
                 const urlParams = new URLSearchParams(window.location.search);
-                console.log(urlParams);
-                // const $x = urlParams.get('w')
-                // const $y = urlParams.get('h)
+                const $x = urlParams.get('w');
+                const $y = urlParams.get('h');
+                console.log($x,$y);
                 // if($x==null && $y==null) {
                 //     window.location.href = window.location.href + '?w=' + $w + '&h=' + $h
                 // }
