@@ -33,7 +33,7 @@ class ConvertController extends Controller
 
         $return = Browsershot::url(asset('/show/'.$memberId))->bodyHtml();
         PDF::loadHtml($return)
-            ->download('svg.pdf');
+            ->download('svg1.pdf');
 
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
