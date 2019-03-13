@@ -20,7 +20,7 @@ class ConvertController extends Controller
         $h = $request->input('h');
         //fullPage
         $return = Browsershot::url(asset('/show/'.$memberId))
-            //->windowSize($w?$w:1600,$h?$w:900)
+            ->windowSize($w?$w:1000,$h?$w:500)
             //->windowSize($w?$w:3830,$h?$w:1350)
             //->windowSize($w?$w:1600,$h?$w:900)
             //->fullPage()
