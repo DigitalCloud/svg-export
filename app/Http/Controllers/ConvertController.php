@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GrabzIt\GrabzItClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Browsershot\Browsershot;
@@ -10,6 +11,11 @@ use Spatie\Image\Manipulations;
 
 class ConvertController extends Controller
 {
+    private $grabzIt;
+    public function __construct(Request $request)
+    {
+        $this->grabzIt = new GrabzItClient("NjRjOGU5NDM5ZDBlNGVkYWJiMDNkMjBjOGNiZTk5OTI=", "Qz8/Pz9dAj99Jj9VPz8WcF8qPz9xSjNNP3cRP2N/P3I=");
+    }
     public function show(Request $request, $memberId)
     {
         return view('svg', ['memberId'=>$memberId]);
@@ -31,12 +37,12 @@ class ConvertController extends Controller
 //            ->fit(Manipulations::FIT_CONTAIN, 1600, 800)
 //            ->save('svg.png');
 
-        $return = Browsershot::url(asset('/show/'.$memberId))->bodyHtml();
+        //$return = Browsershot::url(asset('/show/'.$memberId))->bodyHtml();
 //        PDF::loadHtml($return)
 //            ->download('svg1.pdf');
 
-        Browsershot::html($return)->savePdf('svg.pdf');
-
+        //Browsershot::html($return)->savePdf('svg.pdf');
+        $return = $this->grabzIt->URLToImage("http://www.google.com");
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
 }
