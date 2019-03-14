@@ -44,6 +44,8 @@ class ConvertController extends Controller
         //Browsershot::html($return)->savePdf('svg.pdf');
         $options = new \GrabzIt\GrabzItImageOptions();
         $options->setFormat("jpg");
+        $options->setBrowserHeight(-1);
+        $options->setBrowserWidth(-1);
 
         $return = $this->grabzIt->URLToImage("http://www.google.com", $options);
         $this->grabzIt->SaveTo("result.jpg");
