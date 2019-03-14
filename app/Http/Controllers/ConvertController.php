@@ -42,7 +42,11 @@ class ConvertController extends Controller
 //            ->download('svg1.pdf');
 
         //Browsershot::html($return)->savePdf('svg.pdf');
-        $return = $this->grabzIt->URLToImage("http://www.google.com");
+        $options = new \GrabzIt\GrabzItImageOptions();
+        $options->setFormat("png");
+
+        $return = $this->grabzIt->URLToImage("http://www.google.com", $options);
+        $this->grabzIt->SaveTo("result.png");
         return ['success'=>$return, 'w'=>$w, 'h'=>$h];
     }
 }
