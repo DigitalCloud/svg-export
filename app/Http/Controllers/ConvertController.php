@@ -31,7 +31,7 @@ class ConvertController extends Controller
             ->windowSize($w?$w:1400,$h?$w:500)
             //->windowSize($w?$w:1600,$h?$w:900)
             //->fullPage()
-            //->waitUntilNetworkIdle()
+            ->waitUntilNetworkIdle()
             ->writeOptionsToFile()
             ->deviceScaleFactor(2)
             ->save('svg.png');
