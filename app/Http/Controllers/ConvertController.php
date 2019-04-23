@@ -28,7 +28,7 @@ class ConvertController extends Controller
         //fullPage
         $return = Browsershot::url(asset('/show/'.$memberId))
             //->windowSize($w?$w:3800,$h?$w:1350)
-            ->windowSize($w?$w:1400,$h?$w:500)
+            ->windowSize($w?$w:1400,$h?$h:500)
             //->windowSize($w?$w:1600,$h?$w:900)
             //->fullPage()
             ->waitUntilNetworkIdle()

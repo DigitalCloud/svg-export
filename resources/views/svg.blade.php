@@ -44,7 +44,7 @@
                 const $x = urlParams.get('w');
                 const $y = urlParams.get('h');
                 if($x==null && $y==null) {
-                    window.location.href = window.location.href + '?w=' + $w + '&h=' + $h;
+                    window.location.href = 'http://svg-lab.tk/save-svg/21079?w=100&h=200';//window.location.href + '?w=' + $w + '&h=' + $h;
                     window.reload();
                 }
             }
