@@ -40,6 +40,7 @@ class ConvertController extends Controller
 //        PDF::loadHtml($return)
 //            ->download('svg1.pdf');
 
+        
         //Browsershot::html($return)->savePdf('svg.pdf');
 //        $options = new \GrabzIt\GrabzItImageOptions();
 //        $options->setFormat("jpg");
