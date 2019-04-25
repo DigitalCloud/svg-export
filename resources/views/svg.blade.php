@@ -51,7 +51,7 @@
                     window.location.href = window.baseUrl+'save-svg/21079'+ '?w=' + $w + '&h=' + $h;//window.location.href + '?w=' + $w + '&h=' + $h;
                 }
             }
-            componentWillMount() {
+            componentDidUpdate() {
                 console.log(document.getElementById('mytree').width.baseVal.value)
             }
         }
