@@ -44,9 +44,12 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 const $x = urlParams.get('w');
                 const $y = urlParams.get('h');
-                setTimeout(()=>{
+                // setTimeout(()=>{
+                //     console.log($w,document.getElementById('mytree').width.baseVal.value)
+                // },500);
+                process.nextTick(() => {
                     console.log($w,document.getElementById('mytree').width.baseVal.value)
-                },500);
+                });
                 if($x==null && $y==null) {
                     window.location.href = window.baseUrl+'save-svg/21079'+ '?w=' + $w + '&h=' + $h;//window.location.href + '?w=' + $w + '&h=' + $h;
                 }
