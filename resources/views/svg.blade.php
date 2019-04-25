@@ -20,6 +20,7 @@
     {{--<script src="{{asset('/js/react-main.js')}}"></script>--}}
     <script>
         window.memberId = {{$memberId}}
+        window.baseUrl = "{{asset('/')}}"
     </script>
     <script type="text/babel">
         class App extends React.Component {
@@ -44,8 +45,8 @@
                 const $x = urlParams.get('w');
                 const $y = urlParams.get('h');
                 if($x==null && $y==null) {
-                    window.location.href = 'http://svg-lab.tk/save-svg/21079?w=100&h=200';//window.location.href + '?w=' + $w + '&h=' + $h;
-                    window.reload();
+                    window.location.href = window.baseUrl+'save-svg/21079?w=200&h=200';//window.location.href + '?w=' + $w + '&h=' + $h;
+                    //window.reload();
                 }
             }
         }
