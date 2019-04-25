@@ -44,6 +44,7 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 const $x = urlParams.get('w');
                 const $y = urlParams.get('h');
+                console.log($w)
                 if($x==null && $y==null) {
                     window.location.href = window.baseUrl+'save-svg/21079'+ '?w=' + $w + '&h=' + $h;//window.location.href + '?w=' + $w + '&h=' + $h;
                 }
