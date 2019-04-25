@@ -42,11 +42,13 @@
                 setTimeout(()=>{
                     const $w = document.getElementById('mytree').width.baseVal.value;
                     const $h = document.getElementById('mytree').height.baseVal.value;
+                    const $transformX = parseInt(document.getElementById('mytree').style.transform.replace(/[^\d.]/g, ''));//replace(/[^-?\d.]/g, ''));
                     const urlParams = new URLSearchParams(window.location.search);
                     const $x = urlParams.get('w');
                     const $y = urlParams.get('h');
+                    const $newWidth = $w + $transformX;
                     if($x==null && $y==null) {
-                        window.location.href = window.baseUrl+'save-svg/' + window.memberId + '?w=' + $w + '&h=' + $h;//window.location.href + '?w=' + $w + '&h=' + $h;
+                        window.location.href = window.baseUrl+'save-svg/' + window.memberId + '?w=' + $newWidth + '&h=' + $h;//window.location.href + '?w=' + $w + '&h=' + $h;
                     }
                 },100);
             }
