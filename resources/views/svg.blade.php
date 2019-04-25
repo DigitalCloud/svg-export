@@ -45,8 +45,7 @@
                 const $x = urlParams.get('w');
                 const $y = urlParams.get('h');
                 if($x==null && $y==null) {
-                    window.location.href = window.baseUrl+'save-svg/21079?w=200&h=200';//window.location.href + '?w=' + $w + '&h=' + $h;
-                    //window.reload();
+                    window.location.href = window.baseUrl+'save-svg/21079'+ '?w=' + $w + '&h=' + $h;//window.location.href + '?w=' + $w + '&h=' + $h;
                 }
             }
         }
